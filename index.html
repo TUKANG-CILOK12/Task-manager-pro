@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>✅ Task Manager Pro</h1>
+            <p>Kelola Tugas & Produktivitas Anda</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stat-card total">
+                <div class="stat-icon">📋</div>
+                <div class="stat-info">
+                    <h3>Total Task</h3>
+                    <p class="stat-number" id="totalTasks">0</p>
+                </div>
+            </div>
+            <div class="stat-card active">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <h3>Aktif</h3>
+                    <p class="stat-number" id="activeTasks">0</p>
+                </div>
+            </div>
+            <div class="stat-card completed">
+                <div class="stat-icon">✔️</div>
+                <div class="stat-info">
+                    <h3>Selesai</h3>
+                    <p class="stat-number" id="completedTasks">0</p>
+                </div>
+            </div>
+            <div class="stat-card high-priority">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-info">
+                    <h3>High Priority</h3>
+                    <p class="stat-number" id="highPriorityTasks">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2 id="formTitle">➕ Tambah Task Baru</h2>
+            <form id="taskForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskTitle">Judul Task: *</label>
+                        <input type="text" id="taskTitle" placeholder="Contoh: Kerjakan UTS Front-End" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskCategory">Kategori: *</label>
+                        <select id="taskCategory" required>
+                            <option value="">-- Pilih Kategori --</option>
+                            <option value="personal">🏠 Personal</option>
+                            <option value="work">💼 Work</option>
+                            <option value="study">📚 Study</option>
+                            <option value="health">💪 Health</option>
+                            <option value="others">📦 Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Deskripsi:</label>
+                    <textarea id="taskDescription" rows="3" placeholder="Detail task (opsional)"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskDeadline">Deadline: *</label>
+                        <input type="date" id="taskDeadline" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Prioritas: *</label>
+                        <div class="priority-group">
+                            <label class="priority-option high">
+                                <input type="radio" name="priority" value="high" required>
+                                <span>🔥 High</span>
+                            </label>
+                            <label class="priority-option medium">
+                                <input type="radio" name="priority" value="medium" checked>
+                                <span>⚡ Medium</span>
+                            </label>
+                            <label class="priority-option low">
+                                <input type="radio" name="priority" value="low">
+                                <span>💚 Low</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary" id="submitBtn">
+                        <span>Tambah Task</span>
+                    </button>
+                    <button type="button" class="btn-cancel" id="cancelBtn">
+                        <span>Batal</span>
+                    </button>
+                </div>
+            </form>
+            <div id="feedback" class="feedback"></div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-header">
+                <h2>📝 Daftar Task</h2>
+                <div class="filter-controls">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="all">Semua Status</option>
+                        <option value="active">⏳ Aktif</option>
+                        <option value="completed">✔️ Selesai</option>
+                    </select>
+                    <select id="filterPriority" class="filter-select">
+                        <option value="all">Semua Prioritas</option>
+                        <option value="high">🔥 High</option>
+                        <option value="medium">⚡ Medium</option>
+                        <option value="low">💚 Low</option>
+                    </select>
+                    <select id="filterCategory" class="filter-select">
+                        <option value="all">Semua Kategori</option>
+                        <option value="personal">🏠 Personal</option>
+                        <option value="work">💼 Work</option>
+                        <option value="study">📚 Study</option>
+                        <option value="health">💪 Health</option>
+                        <option value="others">📦 Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list" id="taskList">
+                <!-- Tasks akan ditampilkan di sini -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Task Manager Pro | UTS Pemrograman Front-End</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
